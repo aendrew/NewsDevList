@@ -91,7 +91,9 @@ module Brisk
       def url=(value)
         # Ensure URLS always begin with http://
         if value && !value.match(/\Ahttps?:\/\//)
-          value = "http://#{value}"
+          if !value.match(/^self$/)
+            value = "http://#{value}"
+          end
         end
 
         super(value)
@@ -134,10 +136,14 @@ module Brisk
         set_user_handle
         set_published_at
         set_slug
-        set_domain
-        validates_presence [:title, :url, :slug, :user_id]
-        validates_unique [:url, :slug]
-        validates_url :url
+        if (!:url.match(/^self$/))
+          set_domain
+          validates_presence [:title, :url, :slug, :user_id]
+          validates_unique [:url, :slug]
+          validates_url :url
+        else
+          validates_unique [:slug]
+        end
       end
 
       def retrieve!
