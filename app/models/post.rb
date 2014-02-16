@@ -90,7 +90,7 @@ module Brisk
 
       def url=(value)
         # Ensure URLS always begin with http://
-        if value && !value.match(/\Ahttps?:\/\//)
+        if value && (!value.match(/\Ahttps?:\/\//) || !value.match(/\Aself\.))
           value = "http://#{value}"
         end
 
