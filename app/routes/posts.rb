@@ -40,7 +40,11 @@ module Brisk
 
       get '/v1/posts/suggest_title' do
         begin
-          document = Nestful.get(params[:url], {}, timeout: 4).body
+          if params[:url].match(/^self$/)
+            document = ""
+          else
+            document = Nestful.get(params[:url], {}, timeout: 4).body
+          end
         rescue Nestful::TimeoutError, URI::InvalidURIError
           error 406
         end
