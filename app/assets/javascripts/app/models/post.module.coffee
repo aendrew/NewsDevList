@@ -71,7 +71,8 @@ class Post extends Model
 
   open: ->
     @set(visited: true)
-    window.open(@get('url'))
+    if (!@get('url').match(/^self$/))
+      window.open(@get('url'))
 
   vote: (user) ->
     unless user?.get('admin')

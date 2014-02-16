@@ -85,12 +85,14 @@ module Brisk
         post.save!
         post.vote!(post.user)
 
-        begin
-          post.retrieve!
-        rescue Nestful::ConnectionError => e
-          logger.error e
+        if !:url.match(/^self$/)
+          begin
+            post.retrieve!
+          rescue Nestful::ConnectionError => e
+            logger.error e
+          end
         end
-
+        
         publish [:posts, :create], id: post.id
         json post
       end
