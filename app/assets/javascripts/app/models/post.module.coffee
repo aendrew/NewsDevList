@@ -67,7 +67,8 @@ class Post extends Model
 
   navigate: ->
     @set(visited: true)
-    window.location = @get('url')
+    if (!@get('url').match(/^self$/))
+      window.open(@get('url'))
 
   open: ->
     @set(visited: true)
