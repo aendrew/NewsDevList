@@ -4,8 +4,8 @@
 
 <article>
   <p>
-    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join Monocle,
-    a link-sharing network for curious people.
+    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join JournoHackers,
+    a link-sharing network for code-happy folks in the journalistic profession.
     The next step is linking either your GitHub or your Twitter account.
   </p>
 

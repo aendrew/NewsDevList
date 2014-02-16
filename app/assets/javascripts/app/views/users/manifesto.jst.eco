@@ -1,5 +1,5 @@
 <header>
-  <h2>monocle manifesto</h2>
+  <h2>JournoHackers Manifesto</h2>
 </header>
 
 <article>
@@ -8,12 +8,15 @@
   <% end %>
 
   <p>
-    Monocle is an upbeat and positive community with a focus on technology,
-    startups and frankly anything that appeals to the inquisitive mind.
+    JournoHackers is a community for folks to discuss news, software development,
+    and the intersection of the two. Our primary concern is news developers, but
+    our community is open-ended enough that we also value contributions from
+    data journalists, web developers, video people, photo people, run-of-the-mill
+    journalists, and anyone else with a desire to see news propelled into the 21st century.
   </p>
 
   <p>
-    If someone has invited you to join Monocle, it means they respect your opinion
+    If someone has invited you to join JournoHackers, it means they respect your opinion
     and want to hear your input. Likewise, if you're issuing an invitation,
     bear in mind that the people you invite, and their contributions, reflect
     on you.
@@ -25,7 +28,7 @@
   </p>
 
   <p>
-    Monocle is a place for like-minded individuals to revel in facts and information,
+    JournoHackers is a place for like-minded individuals to revel in facts and information,
     encourage innovation, and ultimately better each other.
   </p>
 </article>
