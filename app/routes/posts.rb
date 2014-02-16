@@ -92,6 +92,7 @@ module Brisk
             logger.error e
           end
         end
+
         
         publish [:posts, :create], id: post.id
         json post
