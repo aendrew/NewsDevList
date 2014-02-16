@@ -32,10 +32,6 @@ group :development do
   gem 'debugger'
 end
 
-group :production do
-  gem 'thin'
-end
-
 # DB
 gem 'sequel'
 gem 'sinatra-sequel'
