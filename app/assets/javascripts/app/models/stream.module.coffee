@@ -4,7 +4,7 @@ Post    = -> require('app/models/post')
 Comment = -> require('app/models/comment')
 
 class ModelStream extends Stream
-  url: '/subscribe'
+  url: 'newsdevlist-stream.herokuapp.com/subscribe'
 
   constructor: ->
     super
