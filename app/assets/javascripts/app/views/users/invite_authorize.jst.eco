@@ -4,7 +4,7 @@
 
 <article>
   <p>
-    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join JournoHackers,
+    You've been invited by <strong><%= @invite.get('user_name') %></strong> to join NewsDevList,
     a link-sharing network for code-happy folks in the journalistic profession.
     The next step is linking either your GitHub or your Twitter account.
   </p>

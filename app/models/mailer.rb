@@ -5,13 +5,13 @@ module Brisk
     module Mailer extend self
       def user_invite!(invite)
         Mail.deliver do
-          from    'JournoHackers <people@journohackers.com>'
+          from    'NewsDevList <people@journohackers.com>'
           to      invite.email
-          subject "An invitation to join JournoHackers from #{invite.user_name}."
+          subject "An invitation to join NewsDevList from #{invite.user_name}."
           body    <<-EOF.dedent
             Hi there,
 
-            #{invite.user_name} has invited you to join JournoHackers, a
+            #{invite.user_name} has invited you to join NewsDevList, a
             community for folks who write software for news.
 
             To learn more, and claim your invitation, visit:
@@ -26,13 +26,13 @@ module Brisk
 
       def user_activate!(user)
         Mail.deliver do
-          from    'JournoHackers <people@journohackers.com>'
+          from    'NewsDevList <people@journohackers.com>'
           to      user.email
-          subject 'Welcome to JournoHackers!'
+          subject 'Welcome to NewsDevList!'
           body    <<-EOF.dedent
             Hi there,
 
-            Good news! #{user.parent_name || 'Admin'} has activated your JournoHackers account.
+            Good news! #{user.parent_name || 'Admin'} has activated your NewsDevList account.
 
             Thanks,
             Admin
@@ -42,9 +42,9 @@ module Brisk
 
       def feedback!(text, email = nil)
         Mail.deliver do
-          from    'JournoHackers <people@journohackers.com>'
+          from    'NewsDevList <people@journohackers.com>'
           to      'admins@journohackers.com'
-          subject 'JournoHackers Feedback'
+          subject 'NewsDevList Feedback'
           reply_to email if email.present?
           body     text
 
