@@ -373,12 +373,14 @@ CREATE TABLE users (
     name text,
     auth json,
     created_at timestamp without time zone,
+    active boolean DEFAULT false,
     updated_at timestamp without time zone,
     admin boolean DEFAULT false,
     registered boolean,
     parent_id uuid,
     invites_count integer DEFAULT 0,
     github text,
+    activated_at timestamp without time zone,
     secret text,
     manifesto boolean DEFAULT false
 );

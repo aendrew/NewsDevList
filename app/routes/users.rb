@@ -54,7 +54,7 @@ module Brisk
         json user
       end
 
-      post '/v1/users/invite', :auth => true do
+      post '/v1/users/invite', :auth => :active_user do
         unless current_user.admin?
           unless current_user.invites_count > 0
             error 422

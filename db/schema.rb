@@ -19,11 +19,13 @@ Sequel.migration do
       String :auth
       DateTime :created_at
       DateTime :updated_at
+      TrueClass :active, :default=>false
       TrueClass :admin, :default=>false
       TrueClass :registered
       foreign_key :parent_id, :users, :type=>String, :key=>[:id]
       Integer :invites_count, :default=>0
       String :github, :text=>true
+      DateTime :activated_at
       String :secret, :text=>true
       TrueClass :manifesto, :default=>false
 

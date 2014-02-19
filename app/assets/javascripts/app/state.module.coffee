@@ -1,6 +1,7 @@
 Model         = require('model')
 User          = -> require('app/models/user')
 AuthorizeUser = -> require('app/controllers/users/authorize')
+PendingUser   = -> require('app/controllers/users/pending')
 Manifesto     = -> require('app/controllers/users/manifesto')
 
 class State extends Model
@@ -14,8 +15,11 @@ class State extends Model
 
   withActiveUser: (callback) =>
     @withUser (user) =>
-      @withSeenManifesto =>
-        callback.call(this, user)
+      if user.get('active')
+        @withSeenManifesto =>
+          callback.call(this, user)
+      else
+        PendingUser().open()
 
   withSeenManifesto: (callback) =>
     @withUser (user) =>
@@ -25,6 +29,9 @@ class State extends Model
       else
         callback.call(this, user)
 
+  hasActiveUser: =>
+    !!@get('user')?.get('active')
+
   hasAdminUser: =>
     !!@get('user')?.get('admin')
 
@@ -33,6 +40,10 @@ class State extends Model
 
     unless user
       AuthorizeUser().open()
+      return false
+
+    unless user.get('active')
+      PendingUser().open()
       return false
 
     unless user.get('manifesto')

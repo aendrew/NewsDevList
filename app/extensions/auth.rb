@@ -65,6 +65,7 @@ module Brisk
         app.set(:auth) do |type|
           condition do
             error 403 unless current_user?
+            error 403 if type == :active_user && !current_user.active?
             error 403 if type == :admin && !current_user.admin?
           end
         end
